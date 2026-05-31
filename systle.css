@@ -1,0 +1,48 @@
+/* --- Cấu hình chung --- */
+:root {
+    --primary-black: #000000;
+    --accent-tan: #C5A992;
+    --cart-yellow: #FCE8B2;
+}
+
+/* --- Style cho My Cart Count (Hình tròn màu vàng) --- */
+.cart-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px; /* Điều chỉnh kích thước tùy ý */
+    height: 20px;
+    background-color: var(--cart-yellow);
+    color: var(--primary-black);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: bold;
+    margin-left: 5px;
+    padding: 2px;
+}
+
+/* --- Style cho đường gạch chân (Shop the collection) --- */
+.custom-underline {
+    text-decoration: none;      /* Xóa gạch chân mặc định của link */
+    display: inline-block;      /* Quan trọng: để border-bottom hiển thị dưới chữ */
+    border-bottom: 1.5px solid #fff; /* Độ dày và màu sắc đường kẻ */
+    padding-bottom: 2px;        /* Khoảng cách giữa chữ và đường kẻ */
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;  /* Tạo hiệu ứng mượt mà khi hover */
+}
+
+/* Tùy chọn: Thêm hiệu ứng khi di chuột qua */
+.custom-underline:hover {
+    border-bottom-color: var(--accent-tan);
+    color: var(--accent-tan);
+}
+
+/* --- Cấu trúc HTML áp dụng tương ứng --- */
+/*
+  1. Cho phần Cart:
+     <span class="cart">My Cart <span class="cart-count">0</span></span>
+
+  2. Cho phần Shop The Collection:
+     <a href="#" class="custom-underline">SHOP THE COLLECTION</a>
+*/

@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaleHub - Fashion & Clothing Shopify Template</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        
+        :root {
+            --primary-black: #000000;
+            --accent-tan: #C5A992;
+            --text-grey: #666666;
+            --border-light: #eeeeee;
+            --bg-footer: #f4f2ee; 
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: var(--primary-black);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* HEADER - LOGO CHÍNH GIỮA */
+        header {
+            border-top: 6px solid var(--primary-black);
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        .header-container>nav,
+        .header-container>div {
+            flex: 1;
+        }
+
+        .navbar-brand {
+            font-size: 32px;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #000;
+            letter-spacing: -1px;
+        }
+
+        .nav-main .nav-link {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+            color: #000 !important;
+            padding: 0 15px;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            height: 750px;
+            position: relative;
+            display: flex;
+            align-items: center; /* Căn giữa nội dung theo chiều dọc giống thiết kế */
+            justify-content: flex-start;
+            overflow: hidden;
+            background-color: #C5A992;
+        }
+
+        .hero-img-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: right center;
+            z-index: 1;
+        }
+
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 10;
+            color: #000; /* Đổi thành màu đen để giống ảnh mẫu */
+            text-align: left;
+            padding-left: 80px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .hero-section h1 {
+            font-weight: 900;
+            line-height: 0.9;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .hero-section .label-new {
+            font-size: 14px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+            color: #000;
+        }
+
+        .find-your-text {
+            font-size: 75px;
+            letter-spacing: -1px;
+        }
+
+        .perfect-text {
+            font-size: 125px;
+            letter-spacing: -4px;
+            display: block;
+        }
+
+        .hero-subtext {
+            font-size: 16px;
+            margin: 25px 0 40px;
+            max-width: 450px;
+            font-weight: 400;
+            color: #555;
+        }
+
+        .btn-hero {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 16px 45px;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-hero:hover {
+            background: #C5A992;
+            color: #000;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 40px;
+            left: 80px;
+            z-index: 10;
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 30px;
+            height: 3px;
+            background: rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #000;
+        }
+
+        /* SECTION TITLE */
+        .section-title {
+            text-align: center;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        /* DENIM GRID */
+        .denim-card {
+            position: relative;
+            height: 530px;
+            overflow: hidden;
+        }
+
+        .denim-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .denim-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .denim-overlay {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            right: 40px;
+            color: #fff;
+            z-index: 10;
+        }
+
+        .denim-overlay h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .denim-overlay p {
+            font-size: 15px;
+            margin-bottom: 20px;
+            max-width: 400px;
+            opacity: 0.9;
+        }
+
+        /* FEATURED PRODUCT */
+        .size-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .size-box {
+            border: 1px solid #111111;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 13px;
+            color: #000;
+            background: #fff;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .size-box.active {
+            background: #000;
+            color: #fff;
+            border-color: #000;
+        }
+
+        .size-box.disabled {
+            border-color: #e5e5e5;
+            color: #cccccc;
+            position: relative;
+        }
+
+        .size-box.disabled i {
+            font-size: 11px;
+            margin-left: 4px;
+            color: #cccccc;
+        }
+
+        .color-dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 12px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            padding: 2px;
+            background-clip: content-box;
+        }
+
+        .color-dot.active {
+            border-color: #000;
+        }
+
+        .btn-add-to-bag {
+            background: #e0e0e0;
+            color: #000000;
+            border: none;
+            width: 100%;
+            padding: 18px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            transition: 0.2s;
+        }
+
+        .btn-add-to-bag:hover {
+            background: #d5d5d5;
+        }
+
+        .btn-paypal-custom {
+            background: #ffc439;
+            color: #003087;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 25px;
+        }
+
+        .btn-paypal-custom span {
+            font-style: italic;
+            font-weight: 800;
+            color: #0079c1;
+        }
+
+        .size-chart-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #000;
+            text-decoration: none;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .size-chart-link i {
+            font-size: 14px;
+        }
+
+        .product-description-text {
+            font-size: 15px;
+            color: #666666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* VIDEO BANNER */
+        .video-banner {
+            height: 550px;
+            position: relative;
+            background: #000;
+        }
+
+        .video-banner video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        /* POLICY SECTION */
+        .policy-section {
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+            padding: 40px 0;
+            background: #ffffff;
+        }
+
+        .policy-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .policy-item i {
+            font-size: 32px;
+            color: #000000;
+        }
+
+        .policy-text-main {
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 4px;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .policy-text-sub {
+            font-size: 13px;
+            color: #777777;
+            margin: 0;
+        }
+
+        /* SHOP THE LOOKS SECTION */
+        .shop-the-looks-section {
+            background-color: #f8f6f3;
+            padding: 80px 0;
+        }
+
+        .looks-title {
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .looks-subtitle {
+            font-size: 14px;
+            color: #777777;
+            max-width: 600px;
+            margin: 0 auto 45px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* BLOG SECTION */
+        .custom-blog-card {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .blog-image {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .custom-blog-card:hover .blog-image img {
+            transform: scale(1.04);
+        }
+
+        .blog-info-box {
+            background: #ffffff;
+            margin-top: -40px;
+            margin-left: 20px;
+            margin-right: 20px;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .blog-title-text {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .blog-description-text {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .author-name {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #000;
+            letter-spacing: 1px;
+        }
+
+        .post-date {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-footer);
+            padding: 80px 0 0;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 900;
+            color: #000;
+            margin-bottom: 25px;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .footer-heading {
+            font-size: 15px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 25px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            font-size: 14px;
+            color: #555555;
+            line-height: 2.5;
+        }
+
+        .footer-links li {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .footer-links li:hover {
+            color: #000;
+        }
+
+        .copyright {
+            background: #ffffff;
+            color: #888888;
+            padding: 25px 0;
+            font-size: 13px;
+            border-top: 1px solid #eaeaea;
+            margin-top: 60px;
+        }
+
+        /* Định dạng cho cụm USD và Privacy bên phải của Copyright */
+        .copyright-meta {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (min-width: 768px) {
+            .copyright-meta {
+                justify-content: flex-end;
+            }
+        }
+
+        .currency-selector {
+            font-weight: bold;
+            color: #000;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .copyright-links {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .copyright-links a {
+            color: #888888;
+            text-decoration: none;
+        }
+
+        .copyright-links a:hover {
+            color: #000;
+        }
+
+        .img-replaced {
+            max-height: 28px;
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .footer-social-icons {
+            display: flex;
+            gap: 18px;
+            margin-top: 25px;
+            font-size: 16px;
+        }
+
+        .footer-social-icons i {
+            cursor: pointer;
+            color: #000;
+            transition: color 0.2s;
+        }
+
+        .footer-social-icons i:hover {
+            color: var(--accent-tan);
+        }
+
+        .footer-payment-icons-inline {
+            display: flex;
+            gap: 8px;
+            margin-top: 25px;
+        }
+
+        .footer-payment-icons-inline img {
+            max-height: 22px;
+            object-fit: contain;
+        }
+
+        .newsletter-wrapper {
+            position: relative;
+            background: #fff;
+            border: 1px solid #cccccc;
+            display: flex;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .newsletter-wrapper input {
+            border: none;
+            padding: 12px 15px;
+            font-size: 13px;
+            outline: none;
+            flex-grow: 1;
+        }
+
+        .newsletter-wrapper .btn-join {
+            background: #111111;
+            color: #fff;
+            border: none;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 0 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.2s;
+        }
+
+        .newsletter-wrapper .btn-join:hover {
+            background: #333333;
+        }
+
+        .care-list-custom {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .care-list-custom li {
+            font-size: 13px;
+            color: #555555;
+            line-height: 2.5; 
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .care-list-custom li::before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+            top: -2px;
+            color: #000000;
+            font-size: 20px; 
+            font-weight: bold;
+        }
+
+        /* ---------------------------------------------------- */
+        /* CSS BỔ SUNG RIÊNG CHO PHẦN CAROUSEL WE LOVE (ẢNH 2)  */
+        /* ---------------------------------------------------- */
+        .product-item-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: #fdfdfd;
+        }
+
+        .product-grid-name {
+            font-size: 14px;
+            font-weight: 400;
+            color: #111111;
+            margin: 12px 0 6px 0;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            height: 40px; /* Cố định độ cao chữ để hàng dưới thẳng hàng */
+        }
+
+        .product-rating-stars {
+            color: #000000;
+            font-size: 11px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .product-grid-price {
+            font-weight: bold;
+            font-size: 14px;
+            color: #000;
+            margin: 0 0 12px 0;
+        }
+
+        /* Ô Swatches chọn màu sắc tròn nhỏ */
+        .product-color-swatches {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: auto; /* Đẩy xuống đáy hộp sản phẩm */
+        }
+
+        .swatch-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-block;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            padding: 1px;
+            background-clip: content-box;
+        }
+
+        .swatch-circle.active {
+            border: 1px solid #000000;
+            box-shadow: 0 0 0 1px #000;
+        }
+
+        .swatch-more {
+            font-size: 12px;
+            color: #888888;
+            margin-left: 2px;
+            font-weight: 500;
+        }
+
+        /* Mũi tên slider trái phải */
+        .carousel-arrow-btn {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            z-index: 20;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #000;
+        }
+
+        .carousel-arrow-btn:hover {
+            background: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        .prev-btn {
+            left: -15px;
+        }
+
+        .next-btn {
+            right: -15px;
+        }
+
+        @media (max-width: 992px) {
+            .carousel-arrow-btn {
+                display: none; /* Ẩn nút mũi tên điều hướng trên mobile để dễ vuốt swipe */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="container-fluid px-0">
+        <div class="container header-container">
+            <nav class="nav nav-main d-none d-lg-flex">
+                <a class="nav-link ps-0" href="#">Home</a>
+                <a class="nav-link" href="#">Pages</a>
+                <a class="nav-link" href="#">Women</a>
+                <a class="nav-link" href="#">Men</a>
+                <a class="nav-link" href="#">Blog</a>
+            </nav>
+
+            <div class="text-center">
+                <a href="#" class="navbar-brand">SaleHub</a>
+            </div>
+
+            <div class="d-flex gap-4 fw-bold small align-items-center justify-content-end">
+                <span><i class="fa-solid fa-magnifying-glass"></i> SEARCH</span>
+                <span><i class="fa-regular fa-user"></i> ACCOUNT</span>
+                <span><i class="fa-solid fa-bag-shopping"></i> MY CART (0)</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <img src="img/slideshow-1_f9506a0f-cd22-46e1-89e6-dfb216eda48b_1920x950.jpg" class="hero-img-bg" alt="Find Your Perfect">
+        <div class="hero-content-wrapper">
+            <span class="label-new text-uppercase">New Collection</span>
+            <h1 class="find-your-text">FIND YOUR</h1>
+            <h1 class="perfect-text">PERFECT</h1>
+            <p class="hero-subtext">Uncompromising in style, quality and performance.</p>
+            <button class="btn btn-hero rounded-0">SHOP THE COLLECTION</button>
+        </div>
+        <div class="slider-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </section>
+
+    <section class="container py-5 mt-5">
+        <div class="text-center mb-5">
+            <h3 class="section-title">Denim Collection</h3>
+            <p class="text-muted fst-italic">Explore the best trends for girls and women at SaleHub! Clothes, shoes and cool accessories for a new</p>
+           <p  class="text-muted fst-italic">season are available now at saleHub online.</p>
+        </div>
+        <div class="row g-4 text-start">
+            <div class="col-md-8">
+                <div class="denim-card">
+                    <img src="img/banner_1_1728x.png" alt="Denim Jacket">
+                    <div class="denim-overlay">
+                        <h2>Denim-Jacket</h2>
+                        <p>14 Denim-Jacket Outfits to Live in Now That It Is Fall</p>
+                       <p href="#" class="text-white small text-decoration-underline fw-bold text-uppercase">Shop the collection</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex flex-column gap-4 h-100">
+                    <div class="denim-card flex-grow-1" style="height: 253px;">
+                        <img src="img/bn-2_676a7adf-ea7b-4fa1-8848-8517abdc2793_900x.jpg" alt="Denim Skirt">
+                        <div class="denim-overlay">
+                            <h5 class="fw-bold text-uppercase m-0 mb-2">Denim mini skirt</h5>
+                            <a href="#" class="text-white small text-decoration-underline fw-bold text-uppercase">Shop the collection</a>
+                        </div>
+                    </div>
+                    <div class="denim-card flex-grow-1" style="height: 253px;">
+                        <img src="img/banner_3_900x.png" alt="Hooded Denim">
+                        <div class="denim-overlay">
+                            <h5 class="fw-bold text-uppercase m-0 mb-1">Hooded Denim</h5>
+                            <p class="small m-0 opacity-75">Subtitle from happy customers</p>
+                            <a href="#" class="text-white small text-decoration-underline fw-bold text-uppercase"   >SHOP THE COLLECTION</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="container py-5 text-center position-relative">
+        <h3 class="section-title d-block mx-auto mb-5" style="width: fit-content;">We Love <i class="fa-solid fa-heart"></i></h3>
+        
+        <!-- Các nút mũi tên điều hướng Slider -->
+        <button class="carousel-arrow-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow-btn next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+
+        <div class="row row-cols-2 row-cols-md-5 g-4 text-start">
+            <!-- Sản phẩm 1 -->
+            <div class="col product-item-box">
+                <div class="product-img-wrapper">
+                    <img src="img/1_35559729-bb4f-477a-afbb-d695451b9719_540x.jpg" class="img-fluid w-100" alt="Product 1">
+                </div>
+                <h6 class="product-grid-name">Eco Aware organic cotton top</h6>
+                <div class="product-rating-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="product-grid-price">$39.00</p>
+                <div class="product-color-swatches">
+                     <span class="swatch-circle active" style="background-image: url('img/1_35559729-bb4f-477a-afbb-d695451b9719_540x.jpg');"></span>
+                    <span class="swatch-circle active" style="background-image: url('img/5_bcff670c-87f8-47c7-a8f5-7aa2b3e8b472_50x50.jpg');"></span>
+                     <span class="swatch-circle active" style="background-image: url('img/1_5cb5d1e1-2c31-499b-9010-ccac2fecf49e_50x50.jpg');"></span>                    
+                    <span class="swatch-more">+3</span>
+                </div>
+            </div>
+
+           
+            <div class="col product-item-box">
+                <div class="product-img-wrapper">
+                    <img src="img/1_bc70b428-ba01-434a-87f7-7fc276929722_540x.jpg" class="img-fluid w-100" alt="Product 2">
+                </div>
+                <h6 class="product-grid-name">Eco aware long sleeve blouse</h6>
+                <div class="product-rating-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="product-grid-price">$47.00</p>
+                <div class="product-color-swatches">
+                    <span class="swatch-circle active" style="background-image: url('img/1_bc70b428-ba01-434a-87f7-7fc276929722_540x.jpg');"></span>
+                     <span class="swatch-circle active" style="background-image: url('img/5_f262bbb4-ddec-4217-8446-2ac307e0ad96_50x50.jpg');"></span>
+                      <span class="swatch-circle active" style="background-image: url('img/1_8624266d-ffc8-44db-b030-5f62c62138d5_540x.jpg');"></span>
+                    <span class="swatch-more">+2</span>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 3 -->
+            <div class="col product-item-box">
+                <div class="product-img-wrapper">
+                    <img src="img/5_225b97d3-5005-45cf-b46e-3d7d6ea50d47_720x.jpg" class="img-fluid w-100" alt="Product 3">
+                </div>
+                <h6 class="product-grid-name">Oversized jacket with denim panels</h6>
+                <div class="product-rating-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="product-grid-price">$33.00</p>
+                <div class="product-color-swatches">
+                     <span class="swatch-circle active" style="background-image: url('img/5_225b97d3-5005-45cf-b46e-3d7d6ea50d47_720x.jpg');"></span>
+                     <span class="swatch-circle active" style="background-image: url('img/1_e35958cd-3f41-4262-85ab-017f8a776679_50x50.jpg');"></span>
+                      <span class="swatch-circle active" style="background-image: url('img/1_d698b06f-6999-4580-ac7e-b27317b686f4_50x50.jpg');"></span>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 4 -->
+            <div class="col product-item-box">
+                <div class="product-img-wrapper">
+                    <img src="img/1_c0df3076-19c1-4535-a664-270cf6e05ab5_720x.jpg" class="img-fluid w-100" alt="Product 4">
+                </div>
+                <h6 class="product-grid-name">Levi's essential western denim shirt</h6>
+                <div class="product-rating-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p class="product-grid-price">$115.00</p>
+                <div class="product-color-swatches">
+                     <span class="swatch-circle active" style="background-image: url('img/1_c0df3076-19c1-4535-a664-270cf6e05ab5_720x.jpg');"></span>
+                      <span class="swatch-circle active" style="background-image: url('img/6_bcd1a33d-2c02-407b-a5a5-6c1b3e43199b_50x50.jpg');"></span>
+                      <span class="swatch-circle active" style="background-image: url('img/7_7d379fe4-a861-4ff4-a474-15b70e999b6a_50x50.jpg');"></span>
+                    <span class="swatch-more">+2</span>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 5 -->
+            <div class="col product-item-box">
+                <div class="product-img-wrapper">
+                    <img src="img/1_8624266d-ffc8-44db-b030-5f62c62138d5_540x.jpg" class="img-fluid w-100" alt="Product 5">
+                </div>
+                <h6 class="product-grid-name">Faux suede biker jacket</h6>
+                <div class="product-rating-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                </div>
+                <p class="product-grid-price">$60.00</p>
+                <div class="product-color-swatches">
+                      <span class="swatch-circle active" style="background-image: url('img/1_8624266d-ffc8-44db-b030-5f62c62138d5_540x.jpg');"></span>
+                    <span class="swatch-circle active" style="background-image: url('img/4_134c3653-e3f1-4c43-8367-086c066c1762_50x50.jpg');"></span>
+                    <span class="swatch-circle active" style="background-image: url('img/6_357432d4-bdfd-446f-aaff-fd28dbba3109_50x50.jpg');"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-banner">
+        <video autoplay muted loop>
+            <source src="video/video.mp4" type="video/mp4">
+        </video>
+        <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+            <p class="text-uppercase fw-bold m-0 mb-2 letter-spacing-1">New arrivals</p>
+            <h2 class="display-3 fw-bold text-uppercase m-0">Autumn is Coming</h2>
+            <p class="mt-2">The 11 Biggest Autumn/Winter 2021 Trends</p>
+            <button class="btn btn-light rounded-0 px-5 py-3 mt-4 fw-bold">
+                <img src="img/view_more-hover.png" alt="View More" class="img-replaced" style="max-height: 25px;">
+            </button>
+        </div>
+    </section>
+
+    <section class="container py-5 my-5">
+        <div class="row g-0 border shadow-sm">
+            <div class="col-md-6">
+                <img src="img/1_c0df3076-19c1-4535-a664-270cf6e05ab5_720x.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Product Image">
+            </div>
+            <div class="col-md-6 p-5">
+                <h6 class="text-muted mb-2" style="text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Featured Product</h6>
+                <h2 class="fw-bold mb-4" style="font-size: 24px;">Levi's essential western denim shirt</h2>
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                <h3 class="fw-bold text-danger mb-4" style="font-size: 22px;">$120.00</h3>
+
+                <p class="small fw-bold mb-2" style="text-transform: uppercase; font-size: 11px; letter-spacing: 1px;">Color: darkolivegreen</p>
+                <div class="mb-4">
+                    <span class="color-dot active" style="background: darkolivegreen;"></span>
+                    <span class="color-dot" style="background: #000000;"></span>
+                    <span class="color-dot" style="background: #dd6b6b;"></span>
+                    <span class="color-dot" style="background: #ffffff; border: 1px solid #ccc;"></span>
+                    <span class="color-dot" style="background: #4a3b8c;"></span>
+                </div>
+
+                <p class="small fw-bold mb-2" style="text-transform: uppercase; font-size: 11px; letter-spacing: 1px;">Size: XS</p>
+                <div class="size-container">
+                    <div class="size-box active">XS</div>
+                    <div class="size-box">S</div>
+                    <div class="size-box disabled">M <i class="fa-regular fa-envelope-open"></i></div>
+                    <div class="size-box">L</div>
+                    <div class="size-box disabled">XL <i class="fa-regular fa-envelope-open"></i></div>
+                </div>
+
+                <button class="btn btn-add-to-bag rounded-0">Add To Bag</button>
+
+                <button class="btn btn-paypal-custom rounded-0">
+                    Pay with <i class="fa-brands fa-paypal" style="font-size: 18px; margin-left: 5px;"></i><span>PayPal</span>
+                </button>
+
+                <a href="#" class="size-chart-link"><i class="fa-solid fa-chart-column"></i> Size Chart</a>
+
+                <p class="product-description-text">
+                    Steele's Lena Dress features a smocked bust, off the shoulder sleeves with eyelet design, and mini cut skirt with raw hem.
+                </p>
+
+                <div class="mt-4 pt-4 border-top">
+                    <ul class="care-list-custom">
+                        <li>MACHINE WASH AT MAX.TEMP. 30° C - NORMAL PROCESS</li>
+                        <li>DO NOT BLEACH</li>
+                        <li>DO NOT TUMBLE DRY</li>
+                        <li>IRON AT MAX. TEMP. OF 110° C WITHOUT STEAM</li>
+                        <li>DO NOT DRY CLEAN</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shop-the-looks-section">
+        <div class="container text-center">
+            <h3 class="looks-title">Shop The Looks <i class="fa-brands fa-instagram"></i></h3>
+            <p class="looks-subtitle">Our latest endeavor features designs from around the world with materials so comfortable you won't want to wear anything else ever again.</p>
+            
+            <div class="row g-3 row-cols-2 row-cols-md-4">
+                <div class="col"><img src="img/lb-1_88ecbdcc-c1c6-47af-9cb5-1f21ebae7c4c_720x.png" class="img-fluid w-100" alt="Look 1"></div>
+                <div class="col"><img src="img/blog-2_900x.png" class="img-fluid w-100" alt="Look 2"></div>
+                <div class="col"><img src="img/lb-3_243a2a47-8869-47c2-a1b7-ea9163d96e52_720x.png" class="img-fluid w-100" alt="Look 3"></div>
+                <div class="col"><img src="img/lb-4_d1d516ae-775a-453a-a97b-84c9e80f69cd_720x.png" class="img-fluid w-100" alt="Look 4"></div>
+                <div class="col"><img src="img/lb-5_fbd8fa3f-d8a8-4ef1-a023-c348c802ad38_720x.png" class="img-fluid w-100" alt="Look 5"></div>
+                <div class="col"><img src="img/lb-6_a88c6dc9-2f7b-4020-96b1-f01cd6593323_720x.png" class="img-fluid w-100" alt="Look 6"></div>
+                <div class="col"><img src="img/lb-7_177acd91-0dbb-4e63-8fe7-2311d1c193e8_720x.png" class="img-fluid w-100" alt="Look 7"></div>
+                <div class="col"><img src="img/img-12-1_1920x1920.jpg" class="img-fluid w-100" alt="Look 8"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container py-5 my-5">
+        <div class="text-center mb-5">
+            <h3 class="section-title" style="border: none; margin: 0;">From Our Blog</h3>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="custom-blog-card">
+                    <div class="blog-image"><img src="img/blog-1_900x.png" alt="Blog Post 1"></div>
+                    <div class="blog-info-box">
+                        <h6 class="blog-title-text">5 Sweet Outfit Ideas You'll Wear Well Beyond Valentine's Day</h6>
+                        <p>Valentine's Day 2021 has no choice but to unfold rather differently than usual, so we already know it will be one to remember....</p>
+                        <div class="blog-footer-info">
+                            <span class="author-name">
+    <i class="fa-solid fa-user"></i> BY VINOVA THEME</span>
+                           <span class="post-date">
+    <i class="fa-regular fa-chart-bar"></i>
+    03 MAR 2021
+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="custom-blog-card">
+                    <div class="blog-image"><img src="img/blog-2_900x.png" alt="Blog Post 2"></div>
+                    <div class="blog-info-box">
+                        <h6 class="blog-title-text">How To Be "Good With Money" According To 4 Female Financial Experts</h6>
+                        <p>Valentine's Day 2021 has no choice but to unfold rather differently than usual, so we already know it will be one to remember....</p>
+                        <div class="blog-footer-info">
+                           <span class="author-name">
+    <i class="fa-solid fa-user"></i> BY VINOVA THEME
+</span>
+                           <span class="post-date">
+    <i class="fa-regular fa-chart-bar"></i>
+    03 MAR 2021
+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="custom-blog-card">
+                    <div class="blog-image"><img src="img/blog-3_900x.png" alt="Blog Post 3"></div>
+                    <div class="blog-info-box">
+                        <h6 class="blog-title-text">This Scandi Influencer's Shoe Collaboration Is The Gift That Keeps On Giving</h6>
+                        <p>Valentine's Day 2021 has no choice but to unfold rather differently than usua, so we already know it will be one to remember....</p>
+                        <div class="blog-footer-info">
+                           <span class="author-name">
+    <i class="fa-solid fa-user"></i> BY VINOVA THEME
+</span>
+                          <span class="post-date">
+    <i class="fa-regular fa-chart-bar"></i>
+    03 MAR 2021
+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="custom-blog-card">
+                    <div class="blog-image"><img src="img/blog-4_900x.png" alt="Blog Post 4"></div>
+                    <div class="blog-info-box">
+                        <h6 class="blog-title-text">5 Sweet Outfit Ideas You'll Wear Well Beyond Valentine's Day</h6>
+                        <p>Valentine's Day 2021 has no choice but to unfold rather differently than usual, so we already know it will be one to remember....</p>
+                        <div class="blog-footer-info">
+                          <span class="author-name">
+    <i class="fa-solid fa-user"></i> BY VINOVA THEME</span>
+                            <span class="post-date">
+    <i class="fa-regular fa-chart-bar"></i>
+    03 MAR 2021
+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="policy-section">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="policy-item">
+                        <i class="fa-solid fa-truck"></i>
+                        <div>
+                            <div class="policy-text-main">Free Shipping</div>  
+                            <p class="policy-text-sub">on all US order or order above $99</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="policy-item">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <div>
+                            <div class="policy-text-main">Support 24/7</div>
+                            <p class="policy-text-sub">Contact us 24 hours a day, 7 days a week</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="policy-item">
+                        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                        <div>
+                            <div class="policy-text-main">30 Days Return</div>
+                            <p class="policy-text-sub">Simply return it within 30 days for an exchange.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container pb-5">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <span class="footer-logo">Salehub</span>
+                    <p class="small text-muted mb-2">We're available by phone +123-456-789</p>
+                    <p class="small text-muted mb-2">info@example.com</p>
+                    <p class="small text-muted m-0">Monday till Friday 10 to 6 EST</p>
+                   <div class="footer-payment-icons-inline">
+                        <img src="img/paypal_240x.png" alt="Visa">
+                    </div>
+                </div>
+                <div class="col-md-2 offset-md-1">
+                    <span class="footer-heading">About Us</span>
+                    <ul class="footer-links">
+                        <li>Our Story</li>
+                        <li>Careers</li>
+                        <li>Influencers</li>
+                        <li>Join our team</li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <span class="footer-heading">Customer Care</span>
+                    <ul class="footer-links">
+                        <li>FAQ</li>
+                        <li>Size Guide</li>
+                        <li>Shopping & Returns</li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <span class="footer-heading">Newsletter</span>
+                    <p class="small text-muted mb-4">Sign up for our newsletter to get latest updates and offers.</p>
+                    <div class="newsletter-wrapper">
+                        <input type="email" placeholder="Your email address...">
+                        <button class="btn-join">Join</button>
+                    </div>
+                     <div class="footer-social-icons">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                        <i class="fa-brands fa-pinterest"></i>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row align-items-center g-3 text-center text-md-start">
+                    <div class="col-md-6">
+                        &copy; 2023 SaleHub. All rights reserved. Vinova Themes.
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="copyright-meta">
+                            <span class="currency-selector">USD $ <i class="fa-solid fa-chevron-down small"></i></span>
+                            <ul class="copyright-links">
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms of Service</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
